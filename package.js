@@ -1,6 +1,6 @@
 Package.describe({
   name: 'nathantreid:vue-sass',
-  version: '0.0.1-alpha.1',
+  version: '0.0.1-alpha.2',
   // Brief, one-line summary of the package.
   summary: 'Sass support for vue components',
   // URL to the Git repository containing the source code for this package.
@@ -20,7 +20,7 @@ Package.registerBuildPlugin({
   ],
   npmDependencies: {
     // 'meteor-scss-processor': 'file:///C:\\projects\\npm\\meteor-scss-processor'
-    'meteor-scss-processor': '0.0.1-alpha.13',
+    'meteor-scss-processor': '0.0.1-alpha.15',
     'meteor-project-path': '0.0.3',
   }
 });
