@@ -26,14 +26,10 @@ function sassHandler({ source, inputFile, dependencyManager, }, cb) {
       map: result.map,
     });
   } catch (err) {
-    console.error(err.stack.toString().split('\n').slice(0, 5));
-    console.log('last Contents:', lastContents)
-    console.log('end last contents');
-    // cb(err);
-    cb(null, {
-      css: '',
-      map: '',
-    });
+    if (!err.message.match(/^File not found at any of the following paths/)) {
+      console.error(err.stack.toString().split('\n').slice(0, 5));
+    }
+    cb(null, {handledError:true});
   }
 }
 
@@ -63,7 +59,7 @@ function discoverImportPath(potentialPaths) {
     }
   }
 
-  throw new Error(`File not found at any of the following paths: ${JSON.stringify(potentialPaths)}`);
+  throw new Error(`File not found at any of the following paths:\n${JSON.stringify(potentialPaths, null, 2)}`);
 }
 
 function getAbsoluteImportPath(relativePath) {
