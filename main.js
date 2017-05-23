@@ -64,7 +64,10 @@ function discoverImportPath(potentialPaths) {
 
 function getAbsoluteImportPath(relativePath) {
   if (path.isAbsolute(relativePath)) {
-    return relativePath.replace(/\\/g, '/').replace(/^\//, '');
+    if (relativePath.match(meteorProjectPath)) {
+      return relativePath.replace(/\\/g, '/');
+    }
+    relativePath.replace(/\\/g, '/').replace(/^\//, '');
   }
 
   return path.join(meteorProjectPath, relativePath).replace(/\\/g, '/');
