@@ -20,6 +20,7 @@ Package.registerBuildPlugin({
   ],
   npmDependencies: {
     // 'meteor-scss-processor': 'file:///C:\\projects\\npm\\meteor-scss-processor'
+    'babel-runtime': '6.20.0',
     'meteor-scss-processor': '0.0.1-alpha.15',
     'meteor-project-path': '0.0.3',
   }
